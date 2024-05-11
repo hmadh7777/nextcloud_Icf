@@ -1,0 +1,26 @@
+---
+- name: Implement Security Measures
+  hosts: all
+  become: true
+  tasks:
+    - name: Ensure UFW is installed and enabled
+      apt:
+        name: ufw
+        state: present
+    - name: Allow HTTP and HTTPS traffic
+      ufw:
+        rule: allow
+        port: "{{ item }}"
+        state: enabled
+      loop:
+        - 80
+        - 443
+    - name: Install certbot and python3-certbot-apache
+      apt:
+        name:
+          - certbot
+          - python3-certbot-apache
+        state: present
+    - name: Obtain Let's Encrypt certificate
+      command: certbot --apache -d example.com --non-interactive --agree-tos --email your-email@example.com
+    # Additional tasks for security hardening (e.g., fail2ban, SSH configuration, etc.)
