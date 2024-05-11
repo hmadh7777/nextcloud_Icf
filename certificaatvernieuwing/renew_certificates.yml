@@ -1,0 +1,10 @@
+---
+- name: Renew Let's Encrypt Certificates
+  hosts: localhost
+  become: true
+  tasks:
+    - name: Renew SSL certificates with certbot
+      command: certbot renew --quiet
+
+
+# Om dit uit te voeren moten  we de regels toevogen aan onse crontab bestand = 0 3 * * * ansible-playbook -i localhost, /path/to/renew_certificates.yml
