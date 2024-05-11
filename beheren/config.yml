@@ -1,0 +1,14 @@
+---
+nextcloud:
+  version: "22.2.0"
+  admin_user: "root"
+  admin_password: "0500"
+
+firewall:
+  allowed_ports:
+    - 80
+    - 443
+
+letsencrypt:
+  domain: "ahmad.com"
+  email: "ahmad@ahmad.com"
