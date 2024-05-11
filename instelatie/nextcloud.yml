@@ -1,0 +1,37 @@
+---
+- name: Install and configure Nextcloud
+  hosts: all
+  become: true
+  tasks:
+    - name: Install required packages
+      package:
+        name: "{{ item }}"
+        state: present
+      loop:
+        - httpd
+        - mariadb-server
+        - php
+        - php-mysqlnd
+        - php-gd
+        - php-xml
+        - php-mbstring
+        - php-json
+        - php-intl
+        - php-apcu
+        - php-zip
+        - wget
+        - unzip
+
+    - name: Download Nextcloud
+      get_url:
+        url: "https://download.nextcloud.com/server/releases/nextcloud-{{ nextcloud_version }}.zip"
+        dest: "/tmp/nextcloud-{{ nextcloud_version }}.zip"
+
+    - name: Unzip Nextcloud
+      unarchive:
+        src: "/tmp/nextcloud-{{ nextcloud_version }}.zip"
+        dest: "/var/www/html"
+        remote_src: yes
+
+    # Additional tasks for configuring Nextcloud, setting up database, etc.
+
