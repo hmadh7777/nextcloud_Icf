@@ -1,0 +1,12 @@
+In mijn onderzoek heb ik me gericht op het waarborgen van cross-platform compatibiliteit van Infrastructure as Code (IaC) -rollen, met specifieke aandacht voor het implementeren van Ansible-rollen op verschillende Linux-distributies, waaronder Rocky Linux 9. Hieronder beschrijf ik de methodologie, implementatie en resultaten van mijn werk:
+
+Methodologie:
+Om cross-platform compatibiliteit te bereiken, heb ik een methodologie ontwikkeld die verschillende benaderingen omvatte. Dit omvatte het gebruik van generieke configuratieopties, het parameteriseren van rollen, het uitvoeren van uitgebreide tests op verschillende distributies, het duidelijk documenteren van rollen en variabelen, en het aanmoedigen van bijdragen van de gemeenschap om verdere verbeteringen mogelijk te maken.
+
+Implementatie:
+In de implementatiefase heb ik deze methodologie toegepast op mijn Ansible-rollen voor het opzetten van Nextcloud-services. Door generieke configuratieopties te gebruiken, konden gebruikers distributiespecifieke variabelen overschrijven om de rol aan te passen aan hun specifieke behoeften. Ik heb ook uitgebreide tests uitgevoerd op verschillende Linux-distributies om ervoor te zorgen dat de rollen correct werkten op elk platform.
+
+Resultaten:
+Als resultaat van mijn inspanningen kon ik succesvol cross-platform compatibiliteit bereiken voor mijn Ansible-rollen. De rollen werkten soepel op verschillende Linux-distributies, waaronder Rocky Linux 9, waardoor gebruikers de vrijheid kregen om hun infrastructuurvoorkeuren te kiezen zonder in te boeten aan functionaliteit of betrouwbaarheid.
+
+Door deze aanpak kon ik gebruikers voorzien van uitgebreide en goed gedocumenteerde Ansible-rollen die flexibel zijn en gemakkelijk kunnen worden aangepast aan hun specifieke behoeften. Dit draagt bij aan het succesvol implementeren van IaC-projecten en biedt gebruikers een naadloze ervaring bij het beheren van hun infrastructuur.
