@@ -1,0 +1,1 @@
+Met dit Docker Compose-configuratiebestand kun je Nextcloud-services efficiënt beheren, containers opzetten met Docker Compose, volumes gebruiken voor gegevenspersistentie en netwerken configureren voor containercommunicatie, allemaal gedefinieerd in één YAML-bestand.
