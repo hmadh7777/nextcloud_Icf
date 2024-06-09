@@ -1,0 +1,63 @@
+---
+- name: Install Nextcloud dependencies
+  apt:
+    name:
+      - apache2
+      - mariadb-server
+      - libapache2-mod-php
+      - php-gd
+      - php-json
+      - php-mysql
+      - php-curl
+      - php-mbstring
+      - php-intl
+      - php-imagick
+      - php-xml
+      - php-zip
+    state: present
+  when: ansible_os_family == 'Debian'
+
+- name: Install Nextcloud dependencies
+  dnf:
+    name:
+      - httpd
+      - mariadb-server
+      - php
+      - php-gd
+      - php-json
+      - php-mysqlnd
+      - php-curl
+      - php-mbstring
+      - php-intl
+      - php-pecl-imagick
+      - php-xml
+      - php-zip
+    state: present
+  when: ansible_os_family == 'RedHat'
+
+- name: Download Nextcloud
+  get_url:
+    url: https://download.nextcloud.com/server/releases/latest.zip
+    dest: /tmp/nextcloud.zip
+
+- name: Unzip Nextcloud
+  unarchive:
+    src: /tmp/nextcloud.zip
+    dest: /var/www/
+    remote_src: yes
+
+- name: Set permissions for Nextcloud
+  file:
+    path: /var/www/nextcloud
+    owner: www-data
+    group: www-data
+    recurse: yes
+  when: ansible_os_family == 'Debian'
+
+- name: Set permissions for Nextcloud
+  file:
+    path: /var/www/nextcloud
+    owner: apache
+    group: apache
+    recurse: yes
+  when: ansible_os_family == 'RedHat'
