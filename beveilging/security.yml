@@ -22,5 +22,16 @@
           - python3-certbot-apache
         state: present
     - name: Obtain Let's Encrypt certificate
-      command: certbot --apache -d example.com --non-interactive --agree-tos --email your-email@example.com
+      command: certbot --apache -d [user] --non-interactive --agree-tos --email your emil
+  - name: Configure firewalld
+    firewalld:
+      service: "{{ item }}"
+      permanent: true
+      state: enabled
+    with_items:
+      - ssh
+      - http
+      - https
+    notify: reload firewalld
+
     # Additional tasks for security hardening (e.g., fail2ban, SSH configuration, etc.)
