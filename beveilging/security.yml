@@ -40,6 +40,24 @@
         certbot_email: "your-email@example.com"
         certbot_domains: ["yourdomain.com"]
         certbot_create_standalone_stop_services: []
+    ---
+    - name: Install fail2ban
+      package:
+      name: fail2ban
+      state: present
+       when: ansible_os_family == 'RedHat'
+
+   - name: Install fail2ban
+     apt:
+     name: fail2ban
+     state: present
+     when: ansible_os_family == 'Debian'
+
+   - name: Ensure fail2ban is running and enabled
+     service:
+    name: fail2ban
+    state: started
+    enabled: yes
 
 
     # Additional tasks for security hardening (e.g., fail2ban, SSH configuration, etc.)
