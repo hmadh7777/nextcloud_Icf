@@ -18,8 +18,8 @@ Dit project automatiseert de installatie en configuratie van Nextcloud, Jitsi-se
 
 
 #Vereisten
-Rocky Linux 9 VM als master machine
-Ubuntu client machine
+master machine
+client machine
 Ansible geïnstalleerd op de Rocky Linux machine
 SSH-toegang tussen de Rocky Linux machine en de Ubuntu client machine
 Installatie
