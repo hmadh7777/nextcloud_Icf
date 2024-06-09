@@ -43,44 +43,23 @@ Dit project automatiseert de installatie en configuratie van Nextcloud, Jitsi-se
 ### Ansible Installeren op Rocky Linux
 
 1. Update je pakketlijst en installeer de EPEL-release:
-    ```sh
-    sudo dnf update -y
-    sudo dnf install -y epel-release
-    ```
 
 2. Installeer Ansible:
-    ```sh
-    sudo dnf install -y ansible
-    ```
 
 3. Controleer de Ansible-installatie:
-    ```sh
-    ansible --version
-    ```
+
 
 ### SSH Keypair Genereren en Configureren
 
 1. Genereer een SSH keypair:
-    ```sh
-    ssh-keygen -t rsa -b 4096 -C "your_email@example.com"
-    ```
+
 
 2. Kopieer de publieke sleutel naar de Rocky Linux VM en de Ubuntu clientmachine:
-    ```sh
-    ssh-copy-id root@rocky_vm_ip_address
-    ssh-copy-id user@ubuntu_client_ip_address
-    ```
+ 
 
 ### Inventarisbestand Configureren
 
 Maak een `hosts.ini` inventarisbestand aan:
-
-```ini
-[rocky]
-localhost ansible_connection=local
-
-[ubuntu]
-ubuntu_client_ip_address ansible_user=user
 
 
 
